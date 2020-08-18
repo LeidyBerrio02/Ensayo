@@ -32,9 +32,11 @@ $control = new Persona_Controller();
 
         var email = document.getElementById('email').value;
         if (email == null || !(/\S+@\S+\.\S+/.test(email))) {
+          //nuevo
+          if (!filter_var(email, FILTER_VALIDATE_EMAIL)) {
           alert("Email incorrecto");
           return false;
-        }
+        }}
       }
       return true;
 
