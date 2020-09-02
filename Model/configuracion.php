@@ -2,7 +2,7 @@
 
 class Conexion{
 
-    private $servername="localhost:3307";
+    private $servername="localhost";
     private $username="root";
     private $userpassword="";
     private $conexion;

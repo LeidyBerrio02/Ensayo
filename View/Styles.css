@@ -108,3 +108,7 @@ p {
 .flex-container {
     display: flex;
 }
+
+label {
+    font-weight: bold;
+}

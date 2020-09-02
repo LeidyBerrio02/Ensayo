@@ -22,29 +22,9 @@ $control = new Persona_Controller();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
   <script src="../Componentes/bootbox.min.js"></script>
   <script src="../Componentes/jquery-3.5.1.min.js"></script>
-
-  <script type="text/javascript">
-    function Validacion() {
-      var nombre = document.getElementById("nombre").value;
-      if (nombre == null || !isNaN(nombre)) {
-        alert("Nombre incorrecto");
-        return false;
-
-        var email = document.getElementById('email').value;
-        if (email == null || !(/\S+@\S+\.\S+/.test(email))) {
-          //nuevo
-          if (!filter_var(email, FILTER_VALIDATE_EMAIL)) {
-          alert("Email incorrecto");
-          return false;
-        }}
-      }
-      return true;
-
-    }
-
-    
-  </script>
-  <title>Sigma</title>
+  <script type="text/javascript" src="aprender.js"></script>
+  <title>Pieza-Sigma</title>
+  <link rel="shortcut icon" href="../Componentes/Images/favicon.ico" />
 </head>
 
 <body>
@@ -59,14 +39,36 @@ $control = new Persona_Controller();
   <a href="PersonaList.php">
     <button type="button" name="lista" id="blist" class="btn btn-danger">Listado</button>
   </a>
-  <form action="#" method="post" id="form1">
+  <form action="#" method="post" id="form1" name="formulario">
     <div class="form-group">
-      <label>Departamento*</label>
-      <input type="text" name="departamento" class="form-control" required="required">
-    </div>
+      <label>Departamento*</label><br>
+      <select name="departamento" class="custom-select" onchange="cambiaCiudad()">
+            <option class="display-6" selected>Departamento</option>
+            <option value="Amazonas">Amazonas</option>
+            <option value="Antioquia">Antioquia</option>
+            <option value="Atlántico">Atlántico</option>
+            <option value="Caquetá">Caquetá</option>
+            <option value="Cesar">Cesar</option>
+            <option value="Chocó">Chocó</option>
+            <option value="Córdoba">Córdoba</option>
+            <option value="Guainía">Guainía</option>
+            <option value="Guaviare">Guavirare</option>
+            <option value="Huila">Huila</option>
+            <option value="LaGuajira">La Guajira</option>
+            <option value="Putumayo">Putumayo</option>
+            <option value="Quindío">Quindio</option>
+            <option value="San Andrés y Providencia">San Andrés y Providencia</option>
+            <option value="Sucre">Sucre</option>
+            <option value="Tolima">Tolima</option>
+            <option value="Vaupés">Vaupés</option>
+            <option value="Vichada">Vichada</option>
+        </select>
+ </div>
     <div class="form-group">
-      <label>Ciudad*</label>
-      <input type="text" name="ciudad" class="form-control" required="required">
+      <label>Ciudad*</label><br>
+      <select name="ciudad" class="custom-select" >
+            <option value="">Ciudad</option>
+        </select>
     </div>
     <div class="form-group">
       <label for="inputAddress">Nombre*</label>
