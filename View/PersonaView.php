@@ -12,7 +12,13 @@ $control = new Persona_Controller();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="Styles.css">
+  <link rel="stylesheet" href="../Componentes/plugins/animate.css/animate.css">
   <link rel="stylesheet" type="text/css" href="../Componentes/Roboto/Blod.ttf">
+  <link rel="stylesheet" href="../Componentes/popper/popper.min.js">
+  <link rel="stylesheet" href="../Componentes/bootstrap4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../Componentes/plugins/sweetAlert2/sweetalert2.min.css">
+  <link rel="stylesheet" href="../Componentes/plugins/animate.css/animate.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <!-- Scripts-->
@@ -28,22 +34,22 @@ $control = new Persona_Controller();
 </head>
 
 <body>
-
-  <img src="../Componentes/Images/sigma-logo.png" id="img1">
-  <h2>Prueba de desarrollo sigma</h2><br>
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the<br>
-    industry's standard dummy text since the 1500s, when an unknown printer took a galley of type and<br>
-    scrambled it to make a type specimen book.</p>
+  <div class="container">
+    <img src="../Componentes/Images/sigma-logo.png" id="img1">
+    <h2>Prueba de desarrollo sigma</h2><br>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the<br>
+      industry's standard dummy text since the 1500s, when an unknown printer took a galley of type and<br>
+      scrambled it to make a type specimen book.</p>
     <div class="flex-container">
-  <img src=../Componentes/Images/sigma-image.png id="img2">
-  <a href="PersonaList.php">
-    <button type="button" name="lista" id="blist" class="btn btn-danger">Listado</button>
-  </a>
-  <form action="#" method="post" id="form1" name="formulario">
-    <div class="form-group">
-      <label>Departamento*</label><br>
-      <select name="departamento" class="custom-select" onchange="cambiaCiudad()">
-            <option class="display-6" selected>Departamento</option>
+      <img src=../Componentes/Images/sigma-image.png id="img2">
+      <a href="PersonaList.php">
+        <button type="button" name="lista" id="blist" class="btn btn-danger">Listado</button>
+      </a>
+      <form action="#" method="post" id="form1" name="formulario" onsubmit="return Validacion();">
+        <div class="form-group">
+          <label>Departamento*</label><br>
+          <select name="departamento" class="custom-select" onchange="cambiaCiudad()" required="required">
+            <option disabled selected>Departamento</option>
             <option value="Amazonas">Amazonas</option>
             <option value="Antioquia">Antioquia</option>
             <option value="Atlántico">Atlántico</option>
@@ -62,49 +68,52 @@ $control = new Persona_Controller();
             <option value="Tolima">Tolima</option>
             <option value="Vaupés">Vaupés</option>
             <option value="Vichada">Vichada</option>
-        </select>
- </div>
-    <div class="form-group">
-      <label>Ciudad*</label><br>
-      <select name="ciudad" class="custom-select" >
-            <option value="">Ciudad</option>
-        </select>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">Nombre*</label>
-      <input type="text" name="nombre" id="nombre" class="form-control" required="required">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Correo*</label>
-      <input type="mail" name="email" id="email" class="form-control" required="required">
-    </div>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ciudad*</label><br>
+          <select name="ciudad" class="custom-select" required="required">
+            <option disabled value="">Ciudad</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Nombre*</label>
+          <input type="text" name="nombre" id="nombre" class="form-control" required="required">
+        </div>
+        <div class="form-group">
+          <label for="inputAddress2">Correo*</label>
+          <input type="mail" name="email" id="email" class="form-control" required="required">
+        </div>
 
 
-    <button type="submit" name="enviar" onclick="Validacion();" class="btn btn-danger" id="button1">Enviar</button>
-    <br><br><br>
-  </form>
-  
+        <button type="submit" name="enviar" class="btn btn-danger" id="button1">Enviar</button>
+        <br><br><br>
+      </form>
 
-  <?php
 
-  if (isset($_POST['enviar'])) {
-    $persona->__SET('Departamento', $_POST['departamento']);
-    $persona->__SET('ciudad', $_POST['ciudad']);
-    $persona->__SET('nombre', $_POST['nombre']);
-    $persona->__SET('email', $_POST['email']);
-    if ($control->insertar($persona)) {
+      <?php
+
+      if (isset($_POST['enviar'])) {
+        $persona->__SET('Departamento', $_POST['departamento']);
+        $persona->__SET('ciudad', $_POST['ciudad']);
+        $persona->__SET('nombre', $_POST['nombre']);
+        $persona->__SET('email', $_POST['email']);
+        if ($control->insertar($persona)) {
       ?>
-      <script>
-      bootbox.alert("Datos registrados Correctamente");
-      </script>
-      <meta http-equiv="refresh" content="2; url=../index.php">
-  <?php
-    } else {
-      echo "Error Ingreso Datos";
-    }
-  } ?>
+          <script>
+            bootbox.alert("Datos registrados Correctamente");
+          </script>
+          <meta http-equiv="refresh" content="5; url=../index.php">
+      <?php
+        } else {
+          echo "Error Ingreso Datos";
+        }
+      }
 
-</div>
+
+      ?>
+    </div>
+  </div>
 </body>
 
 </html>

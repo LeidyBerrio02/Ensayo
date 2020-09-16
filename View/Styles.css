@@ -1,7 +1,7 @@
 #img1 {
     padding: 40px;
     margin: auto;
-    display: block;
+    display: flex;
 }
 
 #img2 {
@@ -55,45 +55,20 @@ p {
 }
 
 #atras {
-    width: auto;
-    height: auto;
     text-align: center;
-    position: center;
-    padding: 9px;
-    border-radius: 30px;
-    float: inline-start;
-    right: 60px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     border: 1px solid salmon;
     background-color: salmon;
+    display: flex;
 }
 
 #blist {
-    width: auto;
-    height: auto;
     text-align: center;
-    position: center;
-    padding: 9px;
-    border-radius: 30px;
-    float: inline-start;
-    right: 60px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid salmon;
-    background-color: salmon;
-}
-
-#tabla {
-    border: 1px solid violet;
-    border-collapse: collapse;
-    padding: 10px 10px;
     border-radius: 20px;
+    border: 1px solid salmon;
 }
 
-#tabla th {
+
+/*#tabla th {
     border-color: violet;
     border: 1px solid violet;
     width: auto;
@@ -103,7 +78,7 @@ p {
     border-color: violet;
     border: 1px solid violet;
     width: auto;
-}
+}*/
 
 .flex-container {
     display: flex;
@@ -111,4 +86,12 @@ p {
 
 label {
     font-weight: bold;
+}
+
+#contenedor {
+    display: flexbox;
+}
+
+#select {
+    border: 1px solid greenyellow;
 }
