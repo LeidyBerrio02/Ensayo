@@ -397,11 +397,17 @@ function Validacion() {
     var email = document.getElementById('email').value;
     //nueva forma de acceder a el valor desde jv document.formulario.nombre.value 
     if (nombre == null || !isNaN(nombre) || document.formulario.nombre.value == " ") {
-        alert("Nombre incorrecto");
+        Swal.fire({
+            icon: 'warning',
+            title: 'Nombre Incorrecto...'
+        })
         return false;
     }
     if (email == null || !(/\S+@\S+\.\S+/.test(email))) {
-        alert("Email incorrecto");
+        Swal.fire({
+            icon: 'warning',
+            title: 'Correo Incorrecto...'
+        })
         return false;
     }
     return true;
@@ -417,8 +423,31 @@ function CorfirmacionEliminacion() {
         return false;
     }
     return true;
+}
+
+
+
+
+
+/* Version Anterior de eliminar 
+
+function CorfirmacionEliminacion() {
+
+    if (confirm('Esta seguro de eliminar el registro?') == true) {
+        'El registro ha sido eliminado correctamente!!';
+        return true;
+    } else {
+        alert('Cancelo la eliminacion');
+        return false;
+    }
+    return true;
 
 }
+
+*/
+
+
+
 /*
 $("#btn0").click(function() {
     alert("Mensaje con Alert");

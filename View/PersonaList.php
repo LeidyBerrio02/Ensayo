@@ -13,7 +13,6 @@ $persona = new Persona();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="Styles.css">
-  <link rel="stylesheet" type="text/css" href="../Componentes/Roboto/Blod.ttf">
   <link rel="stylesheet" href="../Componentes/popper/popper.min.js">
   <link rel="stylesheet" href="../Componentes/bootstrap4/css/bootstrap.min.css">
   <link rel="stylesheet" href="../Componentes/plugins/sweetAlert2/sweetalert2.min.css">
@@ -25,6 +24,8 @@ $persona = new Persona();
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <link rel="shortcut icon" href="../Componentes/Images/favicon.ico" />
+  <link href="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
 
   <title>Sigma</title>
 </head>
@@ -42,7 +43,7 @@ $persona = new Persona();
             <th scope="col">Nombre</th>
             <th scope="col">Email</th>
             <th scope="col">Departamento</th>
-            <th scope="col">ciudad</th>
+            <th scope="col">Ciudad</th>
             <th scope="col">Editar</th>
             <th scope="col">Eliminar</th>
           <tr></tr>
@@ -64,11 +65,14 @@ $persona = new Persona();
               <!--Mostrando botones de acciones -->
               <td style="display: flex; justify-content: space-around">
                 <a href="PersonaDelete.php?id=<?php echo $r->idPersona; ?>">
-                  <button id="btn1" type="submit" class="btn btn-danger" onclick="return CorfirmacionEliminacion()">Eliminar</button></a></td>
+      <button type="submit" class="btn btn-danger" onclick=" return CorfirmacionEliminacion()">Eliminar</button></a></td>
+                 <!-- <button id="btn1" type="button" class="btn btn-danger" onclick=" return CorfirmacionEliminacion()">Eliminar</button></a></td>-->
           </tr>
         <?php endforeach ?>
         </tbody>
       </table>
+      <button id="btn1" type="button" class="btn btn-danger" onclick=" return CorfirmacionEliminacions()">Eliminar</button></a></td>
+
     </div>
 
     <!--
@@ -165,6 +169,8 @@ $persona = new Persona();
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    
   </div>
 </body>
 

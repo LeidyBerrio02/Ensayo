@@ -18,6 +18,8 @@ $control = new Persona_Controller();
   <link rel="stylesheet" href="../Componentes/bootstrap4/css/bootstrap.min.css">
   <link rel="stylesheet" href="../Componentes/plugins/sweetAlert2/sweetalert2.min.css">
   <link rel="stylesheet" href="../Componentes/plugins/animate.css/animate.css">
+  <link rel="stylesheet" href="../Componentes//sweetAlert2/sweetalert2.min.css">
+
 
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -29,6 +31,8 @@ $control = new Persona_Controller();
   <script src="../Componentes/bootbox.min.js"></script>
   <script src="../Componentes/jquery-3.5.1.min.js"></script>
   <script type="text/javascript" src="aprender.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ 
   <title>Pieza-Sigma</title>
   <link rel="shortcut icon" href="../Componentes/Images/favicon.ico" />
 </head>
@@ -49,7 +53,7 @@ $control = new Persona_Controller();
         <div class="form-group">
           <label>Departamento*</label><br>
           <select name="departamento" class="custom-select" onchange="cambiaCiudad()" required="required">
-            <option disabled selected>Departamento</option>
+            <option selected>Departamento</option>
             <option value="Amazonas">Amazonas</option>
             <option value="Antioquia">Antioquia</option>
             <option value="Atlántico">Atlántico</option>
@@ -73,7 +77,7 @@ $control = new Persona_Controller();
         <div class="form-group">
           <label>Ciudad*</label><br>
           <select name="ciudad" class="custom-select" required="required">
-            <option disabled value="">Ciudad</option>
+            <option selected value="">Ciudad</option>
           </select>
         </div>
         <div class="form-group">
@@ -101,9 +105,14 @@ $control = new Persona_Controller();
         if ($control->insertar($persona)) {
       ?>
           <script>
-            bootbox.alert("Datos registrados Correctamente");
+            
+            Swal.fire({        
+        type: 'success',
+        title: 'Éxito',
+        text: '¡Perfecto!',        
+    });
           </script>
-          <meta http-equiv="refresh" content="5; url=../index.php">
+          <meta http-equiv="refresh" content="2; url=../index.php">
       <?php
         } else {
           echo "Error Ingreso Datos";
@@ -114,6 +123,13 @@ $control = new Persona_Controller();
       ?>
     </div>
   </div>
+
+   <!-- Scripts-->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="../Componentes/popper/popper.min.js"></script>
 </body>
 
 </html>
